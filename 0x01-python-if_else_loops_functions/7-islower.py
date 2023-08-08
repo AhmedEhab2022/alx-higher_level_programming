@@ -4,5 +4,5 @@ def islower(c):
         return True
     elif c == '':
         print("Traceback (most recent call last):")
-    else c:
+    else:
         return False

@@ -2,5 +2,7 @@
 def islower(c):
     if c >= 'a' and c <= 'z':
         return True
-    else:
+    elif c == '':
+        print("Traceback (most recent call last):")
+    else c:
         return False

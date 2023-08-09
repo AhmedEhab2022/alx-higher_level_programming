@@ -5,7 +5,7 @@
  *
  * @list: the linked list
  *
- * Return 0 if there is no cycle, 1 if there is a cycle
+ * Return: 0 if there is no cycle, 1 if there is a cycle
  */
 int check_cycle(listint_t *list)
 {
@@ -16,6 +16,9 @@ int check_cycle(listint_t *list)
 
 	p1 = list;
 	p2 = list->next;
+	if (p1 == p2)
+		return (1);
+
 	while (p1->next != NULL)
 	{
 		while (p2->next != NULL)

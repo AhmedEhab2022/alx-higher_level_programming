@@ -31,5 +31,8 @@ int check_cycle(listint_t *list)
 		p1 = p1->next;
 		p2 = p1->next;
 	}
+	if (p1 == p2)
+		return (1);
+
 	return (0);
 }

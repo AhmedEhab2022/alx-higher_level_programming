@@ -4,8 +4,8 @@ if __name__ == '__main__':
 
     length = len(argv)
     if length == 1:
-        print(f"{length - 1:d} argument.")
+        print("0 argument.")
     else:
-        print("{length - 1:d} argument:")
-    for i in range(1, length):
-        print("{}: {}".format(i, argv[i]))
+        print("{} argument:".format(length - 1))
+        for i in range(1, length):
+            print("{}: {}".format(i, argv[i]))

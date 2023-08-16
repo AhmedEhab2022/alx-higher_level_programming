@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def print_sorted_dictionary(a_dictionary):
-    for key, val in sorted(a_dictionary.items()):
-        if type(val) == int:
-            print("{} : {:d}".format(key, val))
+    for key in sorted(a_dictionary):
+        if a_dictionary[key] == int:
+            print("{} : {:d}".format(key, a_dictionary[key]))
         else:
-            print("{} : {}".format(key, val))
+            print("{} : {}".format(key, a_dictionary[key]))

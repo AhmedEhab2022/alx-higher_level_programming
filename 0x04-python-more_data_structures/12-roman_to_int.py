@@ -16,7 +16,7 @@ def roman_to_int(roman_string):
                 res += 5
         elif i == 'X':
             if res >= 50:
-                res -= 50
+                res -= 10
             else:
                 res += 10
         elif i == 'L':

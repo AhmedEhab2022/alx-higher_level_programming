@@ -5,9 +5,12 @@ def safe_print_list(my_list=[], x=0):
         my_len = 0
         for i in range(x):
             try:
-                print("{}".format(my_list[i]), end='')
+                if type(my_list[i]) == int:
+                    print("{:d}".format(my_list[i]), end='')
+                else:
+                    print("{}".format(my_list[i]), end='')
                 my_len += 1
             except IndexError:
                 break
-        print();
+        print()
         return my_len

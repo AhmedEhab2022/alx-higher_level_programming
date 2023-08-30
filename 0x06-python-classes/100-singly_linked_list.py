@@ -78,12 +78,11 @@ class SinglyLinkedList:
 
         curr = self.__head
         last = None
-        while (curr is not None and value >= curr.data):
-            last = curr
+        while (curr.next_node is not None and value > curr.next_node.data):
             curr = curr.next_node
 
-        last.next_node = new_node
-        new_node.next_node = curr
+        new_node.next_node = curr.next_node
+        curr.next_node = new_node
 
     def __str__(self):
         """makes SinglyLinkedList printable"""

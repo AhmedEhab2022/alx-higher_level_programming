@@ -86,15 +86,10 @@ class SinglyLinkedList:
     def __str__(self):
         """makes SinglyLinkedList printable"""
 
-        str_data = ""
+        list_of_data = []
         temp = self.__head
         while temp is not None:
-            str_data += str(temp.data)
-            if temp.next_node is not None:
-                str_data += "\n"
+            list_of_data.append(str(temp.data))
             temp = temp.next_node
 
-        if self.__head is None:
-            return None
-
-        return str_data
+        return "\n".join(list_of_data)

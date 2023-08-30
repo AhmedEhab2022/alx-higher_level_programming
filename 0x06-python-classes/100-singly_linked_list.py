@@ -68,7 +68,7 @@ class SinglyLinkedList:
         new_node = Node(value)
         if self.__head is None:
             self.__head = new_node
-            new_node.next = None
+            new_node.next_node = None
             return
 
         curr = self.__head

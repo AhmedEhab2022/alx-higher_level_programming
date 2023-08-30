@@ -78,7 +78,7 @@ class SinglyLinkedList:
 
         curr = self.__head
         last = None
-        while curr is not None and value > curr.data:
+        while (curr is not None and value >= curr.data):
             last = curr
             curr = curr.next_node
 

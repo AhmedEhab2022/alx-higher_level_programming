@@ -71,26 +71,28 @@ class SinglyLinkedList:
             new_node.next = None
             return
 
-        if self.__head.data > value:
-            new_node.next_node = self.__head
-            self.__head = new_node
-            return
-
         curr = self.__head
         last = None
-        while (curr.next_node is not None and value > curr.next_node.data):
+        while curr is not None and value >= curr.data:
+            last = curr
             curr = curr.next_node
 
-        new_node.next_node = curr.next_node
-        curr.next_node = new_node
+        if last is not None:
+            last.next_node = new_node
+        else:
+            self.__head = new_node
+
+        new_node.next_node = curr
 
     def __str__(self):
         """makes SinglyLinkedList printable"""
 
-        list_of_data = []
+        str_data = ""
         temp = self.__head
         while temp is not None:
-            list_of_data.append(str(temp.data))
+            str_data += str(temp.data)
+            if temp.next_node is not None:
+                str_data += "\n"
             temp = temp.next_node
 
-        return "\n".join(list_of_data)
+        return str_data

@@ -15,8 +15,8 @@ class Node:
         next_node: the next_node instance"""
 
     def __init__(self, data, next_node=None):
-        self.__data = data
-        self.__next_node = next_node
+        self.data = data
+        self.next_node = next_node
 
     @property
     def data(self):

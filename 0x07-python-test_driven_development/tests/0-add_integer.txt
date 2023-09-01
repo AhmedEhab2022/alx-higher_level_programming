@@ -1,0 +1,130 @@
+The ``add_integer`` function
+============================
+
+Description:
+------------
+
+``add_integer`` - adds two integer numbers
+if any given number is float the function casts it to integer,
+any fail the function raises an error
+
+
+Args:
+	a: the first number
+	b: the second number and the defult value is 98
+
+Return:
+	the result of the addition if it succsse, otherwise
+	raises an error
+
+-------------------------------------------------------------
+
+
+Using ``add_integer``
+---------------------
+
+import the function to use it in the test and modules to test:
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+
+-----------------------------------------------------------------
+
+
+Tests and Examples:
+-------------------
+
+
+Examples:
+
+	add_integer(2, 1)
+	expected value: 3
+
+	add_integer(2.0, 2.1)
+	expeced value: 4
+
+	add_integer("hello", 2)
+	expected value: TypeError exception with the message
+	 a must be an integer or b must be an integer
+
+	add_integer(inf, 2)
+	expected value: OverflowError exception with the message 
+	as or b is too large
+
+
+Tests:
+
+the expected result is below the use of the function
+
+
+::	
+	>>> add_integer(1, 2)
+	3
+
+success
+::
+
+	>>> add_integer(float('inf'), 1)
+	Traceback (most recent call last):
+	OverflowError: a is too large
+
+infinity case
+::
+	>>> add_integer('add', 2)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+strings
+::
+	>>> add_integer(2.0, 4)
+	6
+
+float casted to integers
+::
+
+	>>> add_integer(6, ['a', 2, 5, 7])
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+list case
+::
+
+	>>> add_integer(float("nan"), 1)
+	Traceback (most recent call last):
+	ValueError: cannot convert a to integer as a is the float NaN
+
+nan case
+::
+
+	>>> add_integer(1, float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert b to integer as b is the float NaN
+
+nan case in b
+::
+
+	>>> add_integer(1, 1e300)
+	Traceback (most recent call last):
+	OverflowError: b is too large
+
+large numbers case
+::
+
+	>>> add_integer(-1, -2.0)
+	-3
+
+negative numbers
+::
+
+	>>> add_integer(float("nan"), None)
+	Traceback (most recent call last):
+	ValueError: cannot convert a to integer as a is the float NaN
+
+nan case again
+::
+
+	>>> add_integer(None, float('inf'))
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+inf in b

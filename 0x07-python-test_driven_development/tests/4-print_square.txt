@@ -1,0 +1,148 @@
+The ``print_square`` function
+============================
+
+Description:
+------------
+
+``print_square`` - prints a square with the character #
+
+Args:
+	size: the size length of the square 
+
+Return:
+	nothing
+
+Note:
+
+	size must be an integer, otherwise TypeError exception
+	is raised with the message ``size must be an integer``
+
+	if size is less than 0, ValueError exception
+ 	is raised with the message ``size must be >= 0``
+
+	if size is a float and is less than 0,  TypeError exception
+ 	is raised with the message ``size must be an integer``
+-------------------------------------------------------------------------
+
+Examples:
+---------
+
+	print_square(4)
+	print("")
+
+output:
+
+	####
+	####
+	####
+	####
+
+	print_square(10)
+	print("")
+
+output:
+
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+
+	print_square(0)
+	print("")
+
+output:
+
+	is empty line
+
+	print_square(1)
+	print("")
+
+output:
+
+	#
+
+	try:
+    		print_square(-1)
+	except Exception as e:
+    		print(e)
+	print("")
+
+output:
+
+	size must be >= 0
+
+-------------------------------------------------------------
+
+Using ``print_square``
+---------------------
+
+import the function to use it in the test and modules to test:
+
+	>>> print_square = __import__('4-print_square').print_square
+
+--------------------------------------------------------------------
+
+
+Tests:
+------
+
+::
+normal case size is 5:
+
+	>>> print_square(5)
+	#####
+	#####
+	#####
+	#####
+	#####
+	>>> print("")
+	<BLANKLINE>
+
+::
+in case of size is zero:
+
+	>>> print_square(0)
+	>>> print("")
+	<BLANKLINE>
+
+::
+in case of size is 1:
+
+	>>> print_square(1)
+	#
+	>>> print("")
+	<BLANKLINE>
+
+::
+in case of size is negative:
+
+	>>> print_square(-5)
+	Traceback (most recent call last):
+	ValueError: size must be >= 0
+
+::
+in case of size is string:
+
+	>>> print_square("100")
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+::
+in case of size is a float and is less than 0:
+
+	>>> print_square(-1.5)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+::
+in case of size is float:
+
+	>>> print_square(2.5)
+	Traceback (most recent call last):
+	TypeError: size must be an integer

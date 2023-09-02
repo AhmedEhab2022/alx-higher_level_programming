@@ -1,0 +1,101 @@
+The ``say_my_name`` function
+============================
+
+Description:
+------------
+
+``say_my_name`` - prints My name is <first name> <last name>
+
+
+Args:
+	first_name: the first name to print
+	last_name: the last_name to print
+
+Return:
+	nothing.
+
+Note:
+
+	first_name and last_name must be strings otherwise,
+	the TypeError raised with the message:
+	``first_name must be a string`` or ``last_name must be a string``
+-------------------------------------------------------------------------
+
+Examples:
+---------
+
+	say_my_name("John", "Smith")
+
+	output: My name is John Smith
+	
+	say_my_name("Walter", "White")
+
+	output: My name is Walter White
+
+	say_my_name("Bob")
+
+	output: My name is Bob 
+
+	Note: the output in third example followed by a space
+	as ``last_name`` is empty string by default
+-------------------------------------------------------------
+
+Using ``say_my_name``
+---------------------
+
+import the function to use it in the test and modules to test:
+
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+-----------------------------------------------------------------
+
+
+Tests:
+------
+
+::
+normal case:
+
+	>>> say_my_name("Ahmed", "Ehab")
+	My name is Ahmed Ehab
+
+::
+in case of last name not given:
+
+	>>> say_my_name("Ahmed")
+	My name is Ahmed 
+
+::
+in case of first name is a number:
+
+	>>> say_my_name(12, "White")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+::
+in case of first name is a list:
+
+	>>> say_my_name(["Ahmed", "smith"], "Ehab")
+	Traceback (most recent call last):
+	TypeError: first_name must be a string
+
+::
+in case of the last name is a number
+
+	>>> say_my_name("John", 80)
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+::
+in case of last name is a tuple:
+
+	>>> say_my_name("John", (0, 0))
+	Traceback (most recent call last):
+	TypeError: last_name must be a string
+
+::
+in case of the fist name and last name are't valid:
+
+	>>> say_my_name(12, ["Ahmed", 12, 15.8, (0, 0)])
+	Traceback (most recent call last):
+	TypeError: first_name must be a string

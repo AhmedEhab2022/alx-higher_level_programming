@@ -1,0 +1,146 @@
+The ``matrix_divided`` function
+============================
+
+Description:
+------------
+
+``matrix_divided`` - Takes a matrix and number and divide
+all numbers in the matrix by the given number and store the result
+in a new matrix and return it.
+
+
+Args:
+	matrix: the given matrix to divide values in it.
+	div: the number that the matrix divided by.
+
+Return:
+	a new matrix with results of divides all values in matrix matrix
+	by number div, if cannot do the operation the function 
+	raise the suitable error.
+
+Note:
+
+	All elements of the matrix should be divided by div,
+	rounded to 2 decimal places
+-------------------------------------------------------------
+
+
+Using ``matrix_divided``
+---------------------
+
+import the function to use it in the test and modules to test:
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+
+-----------------------------------------------------------------
+
+
+Tests and Examples:
+-------------------
+
+
+Examples:
+
+	if matrix is = [
+		[1, 2, 3],
+		[4, 5, 6]
+	]
+
+	print(matrix_divided(matrix, 3))
+
+result:	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+
+but, 	print(matrix)
+
+result: [[1, 2, 3], [4, 5, 6]]
+
+
+
+Tests:
+
+the expected result is below the use of the function
+
+
+::
+the right use
+
+	>>> matrix = [[1, 2, 3], [4.4, 5.1, 6.7], [7.5, 8.5, 9.5]]
+	>>> print(matrix_divided(matrix, 2))
+	[[0.5, 1.0, 1.5], [2.2, 2.55, 3.35], [3.75, 4.25, 4.75]]
+	>>> print(matrix)
+	[[1, 2, 3], [4.4, 5.1, 6.7], [7.5, 8.5, 9.5]]
+
+::
+string case
+
+	>>> matrix = "[1, 2, 3]"
+	>>> print(matrix_divided(matrix, 2))
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+case of matrix contain another types that not integer or float
+
+	>>> matrix = [["smith", 2, 6.9, 5.0], [[5], 6, 7, (1, 2)]]
+	>>> print(matrix_divided(matrix, 5.5))
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+::
+infinty and nan casess
+
+	>>> matrix = [[float('inf'), 1, 2], [3, 4, 5], [float('nan'), 7, 8]]
+	>>> print(matrix_divided(matrix, 2.8))
+	[[inf, 0.36, 0.71], [1.07, 1.43, 1.79], [nan, 2.5, 2.86]]
+	>>> print(matrix)
+	[[inf, 1, 2], [3, 4, 5], [nan, 7, 8]]
+
+::
+case of rows not the same size
+
+	>>> matrix = [
+	...	[1, 2, 3, 4],
+	...	[5, 6, 7],
+	...	[8, 9]
+	... ]
+	>>> print(matrix_divided(matrix, 9))
+	Traceback (most recent call last):
+	TypeError: Each row of the matrix must have the same size
+
+::
+case of div is equal to zero
+
+	>>> matrix = [
+	... 	[9, 10, 11],
+	... 	[12, 13, 14],
+	... 	[15, 16, 17]
+	... ]
+	>>> print(matrix_divided(matrix, 0))
+	Traceback (most recent call last):
+	ZeroDivisionError: division by zero
+
+::
+case of div is not an integer or float
+
+	>>> matrix = [
+	...     [9, 10, 11],
+	...     [12, 13, 14],
+	...     [15, 16, 17]
+	... ]
+	>>> print(matrix_divided(matrix, "white"))
+	Traceback (most recent call last):
+	TypeError: div must be a number
+
+::
+case of matrix and div is not valid
+
+	>>> matrix = [
+	... 	[9, "smith", 11],
+	...	[12, 13, 14, 15],
+	...	[16, 17, 18, 19]
+	... ]
+	>>> print(matrix_divided(matrix, 0))
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats

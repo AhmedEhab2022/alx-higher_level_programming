@@ -23,9 +23,9 @@ class TestMaxInteger(unittest.TestCase):
         and integers
         """
 
-        self.assertRaises(TypeError, max_integer, [1.9, 1.8, 99999])
-        self.assertRaises(TypeError, max_integer, [9.9, 8.8, 5.5])
-        self.assertRaises(TypeError, max_integer, [8.7, 1, 2, 4])
+        self.assertEqual(max_integer([1.9, 1.8, 99999]), 99999)
+        self.assertEqual(max_integer([9.9, 8.8, 5.5]), 9.9)
+        self.assertEqual(max_integer([8.7, 1, 2, 4]), 8.7)
 
     def test_max_without_any_args(self):
         """Tests the output of the function
@@ -43,6 +43,27 @@ class TestMaxInteger(unittest.TestCase):
         self.assertRaises(TypeError, max_integer, [[0, 1, 2], "smith", (0, 1)])
         self.assertRaises(TypeError, max_integer, ["ahmed", 1.9, {1, 2, 4}])
 
+    def test_string(self):
+        """Tests the output of the function
+        when the argument is string
+        """
+
+        self.assertEqual(max_integer("ahmed"), 'm')
+
+    def test_list_of_strings(self):
+        """Tests the output of the function
+        when the argument is list of string
+        """
+
+        self.assertEqual(max_integer(["ahmed", "ehab", "smith"]), "smith")
+
+    def test_empty_string(self):
+        """Tests the output of the function
+        when the argument is empty string
+        """
+
+        self.assertIsNone(max_integer(""))
+
     def test_max_other_types(self):
         """Tests the output of the function
         when the argument is not a list
@@ -50,6 +71,9 @@ class TestMaxInteger(unittest.TestCase):
 
         self.assertRaises(TypeError, max_integer, 1.9)
         self.assertRaises(TypeError, max_integer, 0)
-        self.assertRaises(TypeError, max_integer, "ahmed")
         self.assertRaises(TypeError, max_integer, (1, 2))
         self.assertRaises(TypeError, max_integer, {1, 5, 0})
+
+
+if __name__ == "__main__":
+    unittest.main()

@@ -71,7 +71,7 @@ class TestMaxInteger(unittest.TestCase):
 
         self.assertRaises(TypeError, max_integer, 1.9)
         self.assertRaises(TypeError, max_integer, 0)
-        self.assertRaises(TypeError, max_integer, (1, 2))
+        self.assertEqual(max_integer((1, 2)), 2)
         self.assertRaises(TypeError, max_integer, {1, 5, 0})
 
 

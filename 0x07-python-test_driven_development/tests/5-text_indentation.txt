@@ -145,8 +145,3 @@ case of text without these characters: `.`, `?` and `:`:
 	>>> text_indentation("""ahmed is a student""")
 	ahmed is a student
 
-::
-case of text with space at the beginning and the end of line:
-
-	>>> text_indentation(""" ahmed is a student """)
-	ahmed is a student

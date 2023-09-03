@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""Module to print a text with 2 new lines after
+each of these characters: ., ?, :
+"""
+
 
 def text_indentation(text):
     """prints a text with 2 new lines after
@@ -15,15 +19,12 @@ def text_indentation(text):
         raise TypeError('text must be a string')
 
     cnt_char1 = 0
-    cnt_char2 = 0
 
     for char in text:
-        if char == ' ' and (cnt_char1 == 0 or cnt_char2 == len(text) - 1):
-            cnt_char2 += 1
+        if char == ' ' and cnt_char1 == 0:
             continue
         print("{}".format(char), end='')
         cnt_char1 += 1
-        cnt_char2 += 1
         if char in ['.', '?', ':']:
             print("\n")
             cnt_char1 = 0

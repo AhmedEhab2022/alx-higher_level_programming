@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+""""Module to return a new matrix with result
+of divide all values in given matrix by div number
+"""
+
 
 def matrix_divided(matrix, div):
     """Takes a matrix and number and divide
@@ -33,7 +37,7 @@ def matrix_divided(matrix, div):
             if type(j) not in [float, int]:
                 raise TypeError(te1_matrix)
 
-    if len(s) > 1:
+    if len(s) != 1:
         raise TypeError(te2_matrix)
 
     if type(div) not in [int, float]:

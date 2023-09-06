@@ -146,3 +146,10 @@ in case of size is float:
 	>>> print_square(2.5)
 	Traceback (most recent call last):
 	TypeError: size must be an integer
+
+::
+in case of missing argument:
+
+	>>> print_square()
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 required positional argument: 'size'

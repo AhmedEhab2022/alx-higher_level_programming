@@ -13,6 +13,7 @@ class TestMaxInteger(unittest.TestCase):
         when the argument is a list of integer
         """
 
+        self.assertEqual(max_integer([4]), 4)
         self.assertEqual(max_integer([1, 2, 3, 4]), 4)
         self.assertEqual(max_integer([90, 100, 0, 1000, 9]), 1000)
         self.assertEqual(max_integer([9999999, 100, 988749, 100]), 9999999)

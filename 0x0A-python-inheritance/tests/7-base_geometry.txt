@@ -19,6 +19,9 @@ test ``area`` method:
 		... except Exception as e:
 		...	print("[{}] {}".format(e.__class__.__name__, e))
 		[Exception] area() is not implemented
+		>>> bg.area()
+		Traceback (most recent call last):
+		Exception: area() is not implemented
 
 	2. too many arguments:
 
@@ -57,6 +60,15 @@ test ``integer_validator`` method:
 		>>> bg.integer_validator("name", 1 + 5j)
 		Traceback (most recent call last):
                 TypeError: name must be an integer
+		>>> bg.integer_validator("name", complex(1, 2))
+		Traceback (most recent call last):
+                TypeError: name must be an integer
+		>>> bg.integer_validator("name", float('inf'))
+		Traceback (most recent call last):
+                TypeError: name must be an integer
+		>>> bg.integer_validator("name", float('nan'))
+		Traceback (most recent call last):
+                TypeError: name must be an integer
 
 	2. value is less than 0:
 
@@ -85,7 +97,7 @@ test ``integer_validator`` method:
 		Traceback (most recent call last):
 		TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-	6. missing two arguments:
+	6. no given arguments:
 
 		>>> bg = BG()
                 >>> bg.integer_validator()

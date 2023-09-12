@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+
+"""Define a class Student"""
+
+
+class Student:
+    """defines a student"""
+
+    def __init__(self, first_name, last_name, age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def to_json(self, attrs=None):
+        """retrieves a dictionary representation of a Student instance"""
+
+        if type(attrs) is list:
+            my_dict = {}
+            for ele in attrs:
+                if type(ele) is str:
+                    for key in self.__dict__.keys():
+                        if key == ele:
+                            my_dict[key] = self.__dict__[key]
+            return my_dict
+
+        return self.__dict__

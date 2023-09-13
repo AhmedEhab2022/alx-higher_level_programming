@@ -69,6 +69,9 @@ test ``integer_validator`` method:
 		>>> bg.integer_validator("name", float('nan'))
 		Traceback (most recent call last):
                 TypeError: name must be an integer
+		>>> bg.integer_validator("name", None)
+		Traceback (most recent call last):
+                TypeError: name must be an integer
 
 	2. value is less than 0:
 

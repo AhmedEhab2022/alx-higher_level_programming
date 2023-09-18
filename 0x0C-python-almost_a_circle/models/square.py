@@ -11,7 +11,6 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         """Class constructor"""
 
-        self.size = size
         super().__init__(self.size, self.size, x, y, id)
 
     def __str__(self):
@@ -20,7 +19,7 @@ class Square(Rectangle):
         id = self.id
         x = self.x
         y = self.y
-        size = self.__size
+        size = self.width
         return f"[Square] ({id}) {x}/{y} - {size}"
 
     @property
@@ -35,7 +34,6 @@ class Square(Rectangle):
 
         self.width = value
         self.height = value
-        self.__size = value
 
     def update(self, *args, **kwargs):
         """Update the square info"""
@@ -50,7 +48,7 @@ class Square(Rectangle):
                     self.x = args[2]
                 if i == 3:
                     self.y = args[3]
-        else:
+        elif kwargs:
             for key in kwargs.keys():
                 if key == 'id':
                     self.id = kwargs[key]

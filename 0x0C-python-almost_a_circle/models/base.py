@@ -130,9 +130,10 @@ class Base:
                 list_insts = []
                 list_dicts1.__next__()
                 for d in list_dicts1:
+                    dic = {}
                     for key, value in d.items():
-                        dic = {key: int(value)}
-                        list_dicts2.append(dic)
+                        dic[key] = int(value)
+                    list_dicts2.append(dic)
 
                 for d in list_dicts2:
                     list_insts.append(cls.create(**d))

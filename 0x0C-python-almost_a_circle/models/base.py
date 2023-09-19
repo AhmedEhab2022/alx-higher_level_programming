@@ -5,6 +5,7 @@ Module contain ``Base`` Class
 """
 
 import json
+import csv
 
 
 class Base:
@@ -84,5 +85,58 @@ class Base:
                 list_insts.append(cls.create(**d))
 
             return list_insts
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """save class info to csv file"""
+
+        filename = cls.__name__ + '.csv'
+
+        if list_objs is not None and list_objs != []:
+            list_dicts = []
+
+            for obj in list_objs:
+                dict_obj = obj.to_dictionary()
+                list_dicts.append(dict_obj)
+
+            if cls.__name__ == 'Rectangle':
+                fields = ['id', 'width', 'height', 'x', 'y']
+            else:
+                fields = ['id', 'size', 'x', 'y']
+
+            with open(filename, 'w', newline="") as csvfile:
+                writer = csv.DictWriter(csvfile, fieldnames=fields)
+                writer.writeheader()
+                writer.writerows(list_dicts)
+        else:
+            with open(filename, 'w', newline='') as csvfile:
+                csvfile.write('[]')
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load class info from csv file"""
+
+        filename = cls.__name__ + '.csv'
+        if cls.__name__ == 'Rectangle':
+            fields = ['id', 'width', 'height', 'x', 'y']
+        else:
+            fields = ['id', 'size', 'x', 'y']
+        try:
+            with open(filename, 'r', newline='') as csvfile:
+                list_dicts1 = csv.DictReader(csvfile, fieldnames=fields)
+                list_dicts2 = []
+                list_insts = []
+                list_dicts1.__next__()
+                for d in list_dicts1:
+                    for key, value in d.items():
+                        dic = {key: int(value)}
+                        list_dicts2.append(dic)
+
+                for d in list_dicts2:
+                    list_insts.append(cls.create(**d))
+
+                return list_insts
         except FileNotFoundError:
             return []

@@ -10,7 +10,7 @@ if (argv.length === 2 || argv.length === 3) {
   for (let i = 2; i < argv.length; i++) {
     const n = parseInt(argv[i]);
     if (n > firstBig) {
-      secBig = n;
+      secBig = firstBig;
       firstBig = n;
     } else if (n < firstBig && n > secBig) {
       secBig = n;

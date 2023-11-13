@@ -5,16 +5,14 @@ const argv = process.argv;
 if (argv.length === 2 || argv.length === 3) {
   console.log(0);
 } else {
-  let secBig = parseInt(argv[2]);
-  let firstBig;
-  for (let i = 3; i < argv.length; i++) {
+  let secBig = -Infinity;
+  let firstBig = -Infinity;
+  for (let i = 2; i < argv.length; i++) {
     const n = parseInt(argv[i]);
-    if (n > secBig && !firstBig) {
+    if (n > firstBig) {
+      secBig = n;
       firstBig = n;
-    } else if (firstBig && n > firstBig) {
-      secBig = firstBig;
-      firstBig = n;
-    } else if (n > secBig) {
+    } else if (n < firstBig && n > secBig) {
       secBig = n;
     }
   }

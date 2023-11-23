@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-""" Moudule contains a script that lists all states from the
-database hbtn_0e_0_usa"""
+""" Moudule contains a script that lists all cities from the database hbtn_0e_4_usa"""
 
 import sys
 import MySQLdb

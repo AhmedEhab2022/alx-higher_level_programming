@@ -8,12 +8,10 @@ def find_peak(list_of_integers):
     if list_of_integers:
         size = len(list_of_integers)
         listInt = list_of_integers.copy()
-        if size == 1:
-            return listInt[0]
-        if listInt[0] >= listInt[1]:
-            return listInt[0]
-        if listInt[size - 1] >= listInt[size - 2]:
-            return listInt[size - 1]
-        for i in range(1, size - 1, 1):
-            if listInt[i] >= listInt[i + 1]:
-                return listInt[i]
+        l, r = 0, size - 1
+        while l < r:
+            mid = (l + r) // 2
+            if listInt[mid] >= listInt[mid + 1]:
+                return listInt[mid]
+            else:
+                l = mid + 1

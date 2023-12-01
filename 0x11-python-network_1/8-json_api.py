@@ -8,11 +8,14 @@ import requests
 
 
 if __name__ == "__main__":
-    letter = sys.argv[1]
-    if !letter:
+    if len(sys.argv) == 1:
         letter = ''
+    else:
+        letter = sys.argv[1]
+
     url = 'http://0.0.0.0:5000/search_user'
     value = {'q': letter}
+
     response = requests.post(url, data=value)
     if response.headers.get('Content-Type') != 'application/json':
         print('Not a valid JSON')

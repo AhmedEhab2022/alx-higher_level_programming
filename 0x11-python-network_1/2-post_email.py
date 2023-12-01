@@ -9,7 +9,6 @@ import sys
 import urllib.parse
 
 
-
 if __name__ == "__main__":
     url, email = sys.argv[1], sys.argv[2]
     values = {'email': email}

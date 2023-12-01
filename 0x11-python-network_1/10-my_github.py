@@ -11,7 +11,7 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
 
-    url = 'https://@' + password + 'api.github.com/users/' + username
+    url = f'https://{password}@api.github.com/users/{username}'
     response = requests.get(url)
     if response:
         data = response.json()

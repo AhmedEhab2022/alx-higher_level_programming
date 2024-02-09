@@ -11,7 +11,7 @@ request.get(url, (err, res, body) => {
     console.log(err);
     return;
   }
-  file.writeFile(filePath, data, (err) => {
+  file.writeFile(filePath, body, (err) => {
     if (err) {
       console.log(err);
     }

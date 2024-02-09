@@ -11,5 +11,5 @@ request.get(url, (err, res, body) => {
     console.log(err);
     return;
   }
-  console.log(body.title);
+  console.log(JSON.parse(body.title));
 });
